@@ -1,7 +1,8 @@
 ﻿import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, signal} from '@angular/core';
 import {Observable} from "rxjs";
 import { MatSidenavModule } from '@angular/material/sidenav';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -10,10 +11,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 })
 export class AppComponent implements OnInit {
 
+  searchVisible: boolean = false;
+  searchText: string = '';
+
     ngOnInit(): void {
 
     }
 
+  toggleSearch() {
+    if (this.searchVisible) {
+      setTimeout(() => { this.searchVisible = false;}, 500);
+    } else {
+      this.searchVisible = true;
+    }
+  }
 }
 
 

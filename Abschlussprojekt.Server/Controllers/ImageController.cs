@@ -1,12 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Abschlussprojekt.Server.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Abschlussprojekt.Server.Controllers;
 
-public class ImageController : Controller
+
+[ApiController]
+[Route("api/[controller]")]
+[Tags("Image")]
+public class ImageController : ControllerBase
 {
     // GET
-    public IActionResult Index()
+    [HttpGet]
+    public IActionResult Get([FromQuery]string[]? searchHandles)
     {
-        return View();
+        return Ok(new { message = "Image API" });
     }
+    
+    [HttpPost("upload")]
+    public IActionResult Upload([FromBody] ImageMetaData metaData, [FromForm] ImageData imageData)
+    {
+        // Upload-Logik hier
+        // return Ok(new { message = "Datei erfolgreich hochgeladen" });
+        return Ok(new { message = "Datei erfolgreich hochgeladen" });
+    }
+    
 }

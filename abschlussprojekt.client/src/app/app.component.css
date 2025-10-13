@@ -1,14 +1,71 @@
-﻿:host {
-    max-width: 1280px;
-    padding: 2rem;
-    text-align: center;
+﻿
+main {
+  margin: 30px;
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+mat-toolbar a {
+  color: white;
 }
 
-table {
-    margin: 0 auto;
+.sidenav-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .search-field .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.SearchBar {
+  flex: 1;
+  max-width: 400px;
+  background-color: white;
+  align-self: center;
+  border-radius: 5px;
+}
+
+.enter-animation {
+  animation: slide-fade 500ms;
+}
+
+.leaving {
+  animation: slide-fade-out 500ms;
+}
+
+@keyframes slide-fade-out {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes slide-fade {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+mat-form-field {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+mat-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.black {
+  color:black;
 }

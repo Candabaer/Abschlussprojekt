@@ -26,3 +26,33 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# ========================================
+# .NET ()
+# ========================================
+
+Abschlussprojekt.Server/bin/
+Abschlussprojekt.Server/obj/
+Abschlussprojekt.Server/.vs/
+Abschlussprojekt.Server/ScaffoldingReadMe.txt
+Abschlussprojekt.Server/Migrations/
+
+# Benutzer- & Cache-Dateien
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+mono_crash.*
+**/.dotnet-watch.json
+
+# Konfigs und Secrets (falls nicht bewusst versioniert)
+Abschlussprojekt.Server/appsettings.Development.json
+Abschlussprojekt.Server/appsettings.json
+
+Abschlussprojekt.Server/appsettings.Local.json
+Abschlussprojekt.Server/secrets.json
+
+# Azure Deployment
+Abschlussprojekt.Server/.publish/
+Abschlussprojekt.Server/*.azurepubxml
+Abschlussprojekt.Server/obj
