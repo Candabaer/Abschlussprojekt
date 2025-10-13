@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import { MatSidenavModule } from '@angular/material/sidenav';
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    standalone: false
 })
 export class AppComponent implements OnInit {
 
