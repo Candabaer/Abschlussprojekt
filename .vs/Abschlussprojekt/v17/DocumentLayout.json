@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ckedi\\Abschlussprojekt\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B89C25D-D4F6-AF4A-A1B2-B109C9C9FD4E}|abschlussprojekt.client\\abschlussprojekt.client.esproj|c:\\users\\ckedi\\abschlussprojekt\\abschlussprojekt.client\\karma.conf.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1B89C25D-D4F6-AF4A-A1B2-B109C9C9FD4E}|abschlussprojekt.client\\abschlussprojekt.client.esproj|solutionrelative:abschlussprojekt.client\\karma.conf.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "karma.conf.js",
+              "DocumentMoniker": "C:\\Users\\ckedi\\Abschlussprojekt\\abschlussprojekt.client\\karma.conf.js",
+              "RelativeDocumentMoniker": "abschlussprojekt.client\\karma.conf.js",
+              "ToolTip": "C:\\Users\\ckedi\\Abschlussprojekt\\abschlussprojekt.client\\karma.conf.js",
+              "RelativeToolTip": "abschlussprojekt.client\\karma.conf.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-10-13T13:21:45.189Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

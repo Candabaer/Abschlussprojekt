@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:59357",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "C:\\Users\\ckedi\\Abschlussprojekt\\Abschlussprojekt.Server\\..\\abschlussprojekt.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
