@@ -1,6 +1,0 @@
-@Abschlussprojekt.Server_HostAddress = http://localhost:5038
-
-GET {{Abschlussprojekt.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
