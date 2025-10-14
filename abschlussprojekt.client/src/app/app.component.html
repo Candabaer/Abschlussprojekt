@@ -30,8 +30,10 @@
       </mat-icon>
     </button>
 
-    <a mat-button [matMenuTriggerFor]="dropdown">
-      Screens
+    <a mat-button routerLink="">
+      <mat-icon>
+        home
+      </mat-icon>
     </a>
 
     <mat-menu #dropdown>
@@ -40,26 +42,38 @@
     </mat-menu>
 
     <!--<span style="flex: 1 1 auto;"></span>-->
-    <a mat-button >
+    <a mat-button routerLink="upload">
       <mat-icon>add_a_photo</mat-icon>
     </a>
 
 
-    <a mat-button (click)="toggleSearch()">
-      <mat-icon>image_search</mat-icon>
-    </a>
+      <a mat-button (click)="toggleSearch($event)">
+        <mat-icon>image_search</mat-icon>
+      </a>
 
     @if(searchVisible){
-    <div [ngClass]="searchVisible ? 'enter-animation' : 'leaving'">
+    <div [ngClass]="showSearch ? 'enter-animation' : 'leaving'" class="search-container" #searchContainer>
       <mat-form-field class="SearchBar search-field" appearance="outline">
-          <input matInput placeholder="Search"  [(ngModel)]="searchText">
-          <button mat-icon-button matSuffix color="primary" (click)="toggleSearch()"
+          <input matInput placeholder="Search" [(ngModel)]="searchText">
+          <button mat-icon-button matSuffix color="primary" (click)="toggleSearch($event)"
                   style="display:flex;align-items:center;">
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
     }
+    @if(!searchVisible){
+      <span  style="flex: 1 1 auto;"></span>
+    }
+
+    <a mat-button routerLink="upload">
+      <mat-icon>person_add</mat-icon>
+      Register
+    </a>
+    <a mat-button routerLink="upload">
+      <mat-icon>account_circle</mat-icon>
+      Login
+    </a>
   </mat-toolbar>
 
   <router-outlet></router-outlet>

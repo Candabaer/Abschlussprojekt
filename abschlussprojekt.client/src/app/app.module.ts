@@ -33,9 +33,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTreeModule} from '@angular/material/tree';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-@NgModule({ declarations: [
-        AppComponent,
-    ],
+import ImageMetaDataComponent from './image-upload-form/image-meta-data/image-meta-data.component';
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
   bootstrap: [AppComponent], imports: [BrowserModule,
     MatMenuModule,
     MatButtonModule,
@@ -64,8 +66,12 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     ReactiveFormsModule,
     MatGridListModule,
     MatTreeModule,
-    ScrollingModule, FormsModule], providers: [
+    ScrollingModule, FormsModule],
+  exports: [
+  ],
+  providers: [
     provideHttpClient(withInterceptorsFromDi())
-  ] })
+  ]
+})
 export class AppModule {
 }

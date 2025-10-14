@@ -18,9 +18,15 @@ mat-toolbar a {
   display: none;
 }
 
+.search-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
 .SearchBar {
   flex: 1;
-  max-width: 400px;
+  /*max-width: 800px;*/
   background-color: white;
   align-self: center;
   border-radius: 5px;

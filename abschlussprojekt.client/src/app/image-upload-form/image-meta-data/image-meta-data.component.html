@@ -1,0 +1,88 @@
+<div [formGroup]="form" class="course-details-form">
+  <mat-form-field appearance="fill" floatLabel="auto">
+
+    <mat-label>Bild Titel</mat-label>
+    <input matInput formControlName="title" #title>
+
+    <mat-hint align="end">
+      {{ title.value.length }} / 60
+    </mat-hint>
+
+    @if (imageTitle.errors?.['minlength']) {
+      <mat-error>
+        A min of 5 letters required
+      </mat-error>
+    }
+    @if (imageTitle.errors?.['maxlength']) {
+      <mat-error>
+        A max of 60 letters allowed
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="auto">
+
+    <mat-label>Preis in €</mat-label>
+    <input matInput formControlName="price" #price>
+
+    <mat-hint align="end">
+      Preis in €
+    </mat-hint>
+
+    @if (imageTitle.errors?.['minlength']) {
+      <mat-error>
+        A min of 5 letters required
+      </mat-error>
+    }
+    @if (imageTitle.errors?.['maxlength']) {
+      <mat-error>
+        A max of 60 letters allowed
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <ng-container *ngIf="usagePurpose.length > 0" formArrayName="usagePurpose">
+  @for(purpose of Object.values(UsagePurpose); track $index){
+  <mat-checkbox  [value]="purpose" [formControlName]="$index" (change)="onChangeDetected()">
+    {{ purpose }}
+  </mat-checkbox>
+  }
+  </ng-container>
+
+  @if(usagePurpose.errors?.['invalidSize']){
+    <h4>sfhsfh</h4>
+  }
+
+
+<!--  <mat-form-field>-->
+<!--    <mat-label>Select Category</mat-label>-->
+<!--    <mat-select formControlName="category">-->
+<!--      <mat-option value="beginner">Beginner</mat-option>-->
+<!--      <mat-optgroup label="Blablabla"></mat-optgroup>-->
+<!--      <mat-option value="INTERMEDIATE">Intermediate</mat-option>-->
+<!--      <mat-option value="ADVANCED">Advanced</mat-option>-->
+<!--    </mat-select>-->
+<!--  </mat-form-field>-->
+
+<!--  <mat-form-field>-->
+<!--    <mat-label>Release Date</mat-label>-->
+<!--    <input matInput formControlName="releasedAt" [matDatepicker]="releasedAtPicker">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="releasedAtPicker"/>-->
+<!--    <mat-datepicker [dateClass]="dateClass" #releasedAtPicker>-->
+<!--    </mat-datepicker>-->
+<!--  </mat-form-field>-->
+
+  <mat-checkbox formControlName="downloadsAllowed">
+    Downloads Allowed?
+  </mat-checkbox>
+
+  <mat-form-field>
+    <mat-label>Longform Description</mat-label>
+    <textarea matInput formControlName="longDescription"></textarea>
+  </mat-form-field>
+
+
+</div>
+
+
+

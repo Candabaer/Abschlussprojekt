@@ -72,14 +72,14 @@ export interface IImageMetaData {
     url?: string | undefined;
     price?: number;
     licence?: string | undefined;
-    usagePurpose?: UsagePurpose;
+    UsagePurpose?: UsagePurpose[] | undefined;
     tags?: string[] | undefined;
     projectName?: string | undefined;
 }
 
 export enum UsagePurpose {
-  OnlineBanner = 0,
-  PrintMagazine =1,
-  PrintFlyer=2,
-  Video= 3,
+  OnlineBanner = 'Banner Werbung',
+  PrintMagazine = 'Print Magazine',
+  PrintFlyer= 'Print Flyer',
+  Video= 'Video Werbung',
 }

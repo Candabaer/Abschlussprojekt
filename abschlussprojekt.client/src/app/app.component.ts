@@ -1,5 +1,5 @@
 ﻿import { HttpClient } from '@angular/common/http';
-import {Component, Input, OnInit, signal} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnInit, signal, ViewChild} from '@angular/core';
 import {Observable} from "rxjs";
 import { MatSidenavModule } from '@angular/material/sidenav';
 
@@ -12,16 +12,34 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
 
   searchVisible: boolean = false;
+  showSearch: boolean = false;
   searchText: string = '';
+  @ViewChild('searchContainer') searchContainer!: ElementRef;
+
+  @HostListener('document:click', ['$event'])
+
+  onClick(event: MouseEvent) {
+    if(!this.searchContainer){
+      return;
+    }
+    const clickedInside = this.searchContainer.nativeElement.contains(event.target);
+    console.log(this.searchContainer.nativeElement);
+    if (!clickedInside && this.showSearch) {
+      this.toggleSearch(event);
+    }
+  }
 
     ngOnInit(): void {
 
     }
 
-  toggleSearch() {
+  toggleSearch(event: MouseEvent) {
+    event?.stopPropagation();
     if (this.searchVisible) {
+      this.showSearch = false;
       setTimeout(() => { this.searchVisible = false;}, 500);
     } else {
+      this.showSearch = true;
       this.searchVisible = true;
     }
   }
