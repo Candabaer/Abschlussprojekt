@@ -1,4 +1,5 @@
 <div [formGroup]="form" class="course-details-form">
+
   <mat-form-field appearance="fill" floatLabel="auto">
 
     <mat-label>Bild Titel</mat-label>
@@ -64,9 +65,21 @@
       <mat-datepicker #myDatepicker/>
     </mat-form-field>
 
+  <mat-form-field >
+    <mat-label>Projekt</mat-label>
+    <select matNativeControl required formControlName="project">
+      <!--TODO: Dynamische Liste von Projekten -->
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+  </mat-form-field>
+
   <mat-form-field>
-    <mat-label>Longform Description</mat-label>
-    <textarea matInput formControlName="longDescription"></textarea>
+    <mat-label>Tags</mat-label>
+    <mat-hint>Tags können durch , separiert werden</mat-hint>
+    <textarea matInput formControlName="tags"></textarea>
   </mat-form-field>
 
 

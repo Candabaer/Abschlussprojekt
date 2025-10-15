@@ -4,15 +4,24 @@
 
   <mat-horizontal-stepper class="mat-elevation-z5" [linear]="true" labelPosition="bottom">
 
-    <mat-step errorMessage="LOL PEINLO">
+    <mat-step  errorMessage="">
       <ng-template matStepLabel>Course Details</ng-template>
       <div class="stepper-buttons">
-        <app-image-meta-data></app-image-meta-data>
-        <button mat-raised-button color="primary" matStepperNext>Add Course Deatils</button>
+        <app-image-upload style="width: 50%"></app-image-upload>
+
+        <button mat-raised-button color="primary" matStepperNext>Eingabe bestätigen</button>
       </div>
     </mat-step>
 
-    <mat-step>
+    <mat-step [stepControl]="metaData.form" errorMessage="">
+      <ng-template matStepLabel>Course Details</ng-template>
+      <div class="stepper-buttons">
+        <app-image-meta-data #metaData></app-image-meta-data>
+        <button mat-raised-button color="primary" matStepperNext>Eingabe bestätigen</button>
+      </div>
+    </mat-step>
+
+    <mat-step >
       <ng-template matStepLabel>Course Lessons</ng-template>
       <button mat-raised-button matStepperPrevious>Add Course Lessons</button>
       <button mat-raised-button color="primary">Create Course</button>

@@ -1,0 +1,13 @@
+<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+<div [formGroup]="form" class="course-details-form">
+
+  <div class="file-upload">
+    <mat-form-field>
+      <input  matInput [disabled]="true" [value]="fileName">
+    </mat-form-field>
+    <button mat-mini-fab (click)="fileUpload.click()">
+      <mat-icon>attach_file</mat-icon>
+    </button>
+  </div>
+</div>

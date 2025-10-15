@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnInit, Output, signal, ViewChild} from '@angular/core';
 import {FormBuilder, FormsModule, NgForm} from '@angular/forms';
 import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} from "@angular/material/stepper";
 import {MatButton} from "@angular/material/button";
 import ImageMetaDataComponent from "./image-meta-data/image-meta-data.component";
+import {ImageUploadComponent} from "./image-upload/image-upload.component";
 
 @Component({
   selector: 'app-image-upload-form',
@@ -15,13 +16,18 @@ import ImageMetaDataComponent from "./image-meta-data/image-meta-data.component"
     MatButton,
     MatStepLabel,
     MatStepperPrevious,
-    ImageMetaDataComponent
+    ImageMetaDataComponent,
+    ImageUploadComponent
   ],
   standalone: true
 })
 export class ImageUploadFormComponent {
+
     constructor(private formBuilder: FormBuilder) {
+
     }
+
+
 
     formSubmit(form: NgForm) {}
 
