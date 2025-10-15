@@ -1,11 +1,11 @@
 import { Component } from "@angular/core";
 import {
+  MatDatepickerModule,
   MatDatepicker,
   MatDatepickerInput,
   MatDatepickerToggle
 } from "@angular/material/datepicker";
 import {MatError, MatFormField, MatHint, MatInput, MatInputModule, MatLabel} from "@angular/material/input";
-import {MatOptgroup, MatOption, MatSelect, MatSelectModule} from "@angular/material/select";
 import {
   AbstractControl,
   FormArray,
@@ -15,16 +15,24 @@ import {
   Validators
 } from "@angular/forms";
 import {MatCheckbox, MatCheckboxModule} from '@angular/material/checkbox';
-import {MatRadioButton, MatRadioGroup, MatRadioModule} from '@angular/material/radio';
 import {UsagePurpose} from "../../Dto/ImageDto";
+import {MatGridList, MatGridTile} from "@angular/material/grid-list";
+import {MatIconModule} from '@angular/material/icon';
 
 export function validateOneSelected(control: AbstractControl): ValidationErrors | null {
   const formArray = control as FormArray;
-  console.log(formArray.length);
-  let x = formArray.length > 0
-  console.log("Ist: " + x );
 
-  return formArray && formArray.length > 0 ? { invalidSize: true } : null;
+  const selectedCount = formArray.controls
+    .map(c => c.value)
+    .filter(value => !!value).length;
+
+  let form = formArray.controls[0];
+  console.log(form.value);
+
+  // console.log('Number of controls:', formArray.controls.length);
+  // console.log('Selected count:', selectedCount);
+
+  return selectedCount > 0 ? null : { invalidSize: true };
 }
 
 @Component({
@@ -37,20 +45,21 @@ export function validateOneSelected(control: AbstractControl): ValidationErrors 
     MatLabel,
     MatHint,
     MatError,
-    MatRadioGroup,
-    MatRadioButton,
-    MatSelect,
-    MatOption,
-    MatOptgroup,
     MatDatepickerToggle,
     MatDatepicker,
+    MatDatepickerModule,
     MatCheckbox,
     MatDatepickerInput,
-    MatInput
+    MatInput,
+    MatGridList,
+    MatIconModule,
+    MatGridTile,
   ],
   styleUrl: './image-meta-data.component.css'
 })
 class ImageMetaDataComponent {
+  protected readonly Object = Object;
+  UsagePurpose = UsagePurpose;
 
   form = this.fb.group({
     title: ['', [
@@ -59,8 +68,10 @@ class ImageMetaDataComponent {
       Validators.maxLength(60)
     ]],
     price: ['', Validators.required],
-    releasedAt: [new Date(), Validators.required],
-    usagePurpose: this.fb.array([], validateOneSelected),
+    validity: [new Date(), Validators.required],
+    usagePurpose: this.fb.array(Object.values(UsagePurpose).map(() => this.fb.control(false)),
+      validateOneSelected
+    ),
     courseType: ['premium', Validators.required],
     downloadsAllowed: [false, Validators.requiredTrue],
     longDescription: ['', [Validators.required, Validators.minLength(3)]]
@@ -78,13 +89,7 @@ class ImageMetaDataComponent {
     return this.form.controls['title'];
   }
 
-  protected readonly UsagePurpose = UsagePurpose;
-  protected readonly Object = Object;
-
-  onChangeDetected() {
-    this.usagePurpose.markAsDirty();
-    this.usagePurpose.updateValueAndValidity();
-  }
+  protected readonly Date = Date;
 }
 
 export default ImageMetaDataComponent
