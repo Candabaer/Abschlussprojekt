@@ -2,12 +2,12 @@
 
   <h2 class="title">Neues Bild hochladen</h2>
 
-  <mat-horizontal-stepper class="mat-elevation-z5" [linear]="true" labelPosition="bottom">
+  <mat-horizontal-stepper #stepper class="mat-elevation-z5" [linear]="false" labelPosition="bottom">
 
-    <mat-step  errorMessage="">
+    <mat-step [stepControl]="imageUpload.form" errorMessage="">
       <ng-template matStepLabel>Course Details</ng-template>
       <div class="stepper-buttons">
-        <app-image-upload style="width: 50%"></app-image-upload>
+        <app-image-upload #imageUpload style="width: 50%"></app-image-upload>
 
         <button mat-raised-button color="primary" matStepperNext>Eingabe bestätigen</button>
       </div>
@@ -23,6 +23,9 @@
 
     <mat-step >
       <ng-template matStepLabel>Course Lessons</ng-template>
+      @if(combinedForm){
+        <app-review #review [combinedForm]="combinedForm"></app-review>
+      }
       <button mat-raised-button matStepperPrevious>Add Course Lessons</button>
       <button mat-raised-button color="primary">Create Course</button>
     </mat-step>

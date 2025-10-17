@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
@@ -29,12 +29,15 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrl: './image-upload.component.css'
 })
 export class ImageUploadComponent {
+
   @Input()
   requiredFileType: string | undefined;
   fileName: string | undefined;
-  form = this.fb.group({
 
+  form = this.fb.group({
+    image: new FormControl<File | undefined>(undefined , [Validators.required]),
   })
+  imagePreview: string | ArrayBuffer | null |undefined;
 
   constructor(private fb: FormBuilder) {}
 
@@ -43,8 +46,18 @@ export class ImageUploadComponent {
     const file: File | undefined = input?.files?.[0];
     this.fileName = file?.name;
     const formData = new FormData();
+
     if(file){
-      formData.append("image", file);
+        formData.append("image", file);
+      this.form.patchValue({image: file});
+      this.createPreview(file);
     }
+  }
+  createPreview(file: File) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+    reader.readAsDataURL(file);
   }
 }

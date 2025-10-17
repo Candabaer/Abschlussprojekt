@@ -1,0 +1,49 @@
+<mat-grid-list cols="2" rowHeight="500px" style="margin-bottom: 20px">
+  <mat-grid-tile>
+    <div class="tile-content">
+      <div class="field">
+        <span class="label">Titel:</span>
+        <span class="value">{{ combinedForm.value.metadata.title }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Beschreibung:</span>
+        <span class="value">{{ combinedForm.value.metadata.description }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Beschreibung:</span>
+        <span class="value">{{ combinedForm.value.metadata.price }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">Beschreibung:</span>
+        <span class="value">{{ combinedForm.value.metadata.validity }}</span>
+    </div>
+      <div class="field">
+        <span class="label">Beschreibung:</span>
+        <span class="value">{{ combinedForm.value.metadata.project }}</span>
+    </div>
+      <div class="field">
+        <span class="label">Beschreibung:</span>
+        <span class="value">{{ combinedForm.value.metadata.tags }}</span>
+    </div>
+      <div class="field">
+        <span class="label">Beschreibung:</span>
+        <span class="value">{{ combinedForm.value.metadata.usagePurpose }}</span>
+    </div>
+    </div>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+
+        <img [src]="combinedForm.value.image.imagePreview" alt="Preview" class="preview-image">
+        <div class="">
+          <span class="label">Dateiname:</span>
+          <span class="value">{{ combinedForm.value.image.imageName }}</span>
+        </div>
+
+  </mat-grid-tile>
+</mat-grid-list>
+

@@ -34,6 +34,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTreeModule} from '@angular/material/tree';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import ImageMetaDataComponent from './image-upload-form/image-meta-data/image-meta-data.component';
+import { ReviewComponent } from './image-upload-form/review/review.component';
 @NgModule({
   declarations: [
     AppComponent,

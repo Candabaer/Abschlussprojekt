@@ -1,0 +1,18 @@
+.tile-content {
+  display: flex;
+  flex-direction: column; /* => untereinander */
+  gap: 8px; /* etwas Abstand */
+}
+
+.field {
+  display: flex;
+  flex-direction: column; /* Label über Value */
+}
+
+.label {
+  font-weight: 600;
+}
+
+.value {
+  margin-left: 4px;
+}
